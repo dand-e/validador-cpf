@@ -1,5 +1,13 @@
 console.log('Javascript carregado');
 
+function validaQtd(){
+  if(cpf.length != 15){
+    return false;
+  } else if(cpf.match(regex) == true){
+    return validaCPF();
+  } else return false;
+}
+
 function validaCPF(){
   var cpf = document.getElementById('cpf-digitado').value
   if(cpf.length != 11){
@@ -41,8 +49,9 @@ function validacao(){
   document.getElementById('success').style.display='none'
   document.getElementById('error').style.display='none'
   var cpf = document.getElementById('cpf-digitado').value;
+  const regex = new RegExp('[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}');
+  var validaQuantidade = validaQtd(cpf);
   var resultadoValidacao = validaCPF(cpf);
 
   resultadoValidacao ? document.getElementById('success').style.display = 'block' : document.getElementById('error').style.display = 'block'
 }
-
